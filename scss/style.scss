@@ -295,121 +295,27 @@ nav {
   }
 }
 
-.filter {
+.category {
   display: flex;
   flex-direction: column;
   font-weight: 700;
   margin-top: 15%;
 
-  &-price {
-    &_title {
-      display: block;
-      font-size: 14px;
-      line-height: 13px;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    &_range {
-      display: flex;
-      margin-bottom: 7px;
-      width: 100%;
-    }
-
-    &_input-wrapper {
-      padding-right: 4px;
-      padding-left: 0;
-      display: flex;
-      flex: 0 0 50%;
-      align-items: baseline;
-      box-sizing: border-box;
-    }
-
-    &_label {
-      display: block;
-      font-size: 14px;
-      padding: 0 3px 0 0;
-      color: #999;
-      flex: 0 0 auto;
-    }
-
-    &_input {
-      width: 100%;
-      max-width: calc(100% - 18px);
-      flex: 1 1 auto;
-      font-size: 14px;
-      padding: 4px 5px 6px;
-      outline: 2px solid transparent;
-      border: 1px solid #c5c5c5;
-      border-radius: 2px;
-      background: #fff;
-      height: 27px;
-      box-sizing: border-box;
-      box-shadow: none;
-    }
+  &_title {
+    display: block;
+    font-size: 14px;
+    line-height: 13px;
+    margin-bottom: 10px;
+    font-weight: 700;
   }
 
-  &-check {
-    font-weight: 500;
-
-    &_label {
-      display: block;
-      min-height: 16px;
-      position: relative;
-      padding-left: 21px;
-      color: #4d5f71;
-      font-family: GTEestiProText, Arial, sans-serif;
-      font-size: 14px;
-      line-height: 19px;
-      cursor: pointer;
-      user-select: none;
-
-      &-text {
-        display: inline-block;
-        vertical-align: top;
-        line-height: 100%;
-        margin-top: 1px;
-
-      }
-
-      .active {
-        font-weight: 700;
-      }
-    }
-
-    &_checkbox {
-      opacity: 0;
-      position: absolute;
-      cursor: pointer;
-    }
-
-    &_checkmark {
-      width: 15px;
-      height: 15px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      box-sizing: border-box;
-      background: #fff;
-      border: 1px solid $main-color;
-      border-radius: 2px;
-
-      &.checked::after {
-        display: block;
-      }
-
-      &:after {
-        display: none;
-        width: 15px;
-        height: 15px;
-        position: absolute;
-        top: -4px;
-        left: 2px;
-        content: "";
-        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 15 15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.3 15L15 1.2 13.7 0 5.1 12.3 1.1 8 0 9.4 5.3 15z' fill='%23005bff'/%3E%3C/svg%3E");
-      }
-    }
+  &-item {
+    color: black;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+
 }
 
 .card {
