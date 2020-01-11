@@ -67,6 +67,7 @@ button {
 }
 
 .category {
+
   &-title {
     font-size: 30px;
     font-weight: 400;
@@ -86,7 +87,7 @@ nav {
   .logo {
     display: block;
     height: 96px;
-    width: 234px;
+    width: 212px;
     margin-left: 15px;
     margin-right: 15px;
     background-repeat: no-repeat;
@@ -310,10 +311,61 @@ nav {
   }
 
   &-item {
+    position: relative;
+    display: inline-block;
+    padding-left: 22px;
+    height: 30px;
     color: black;
     font-size: 14px;
     text-overflow: ellipsis;
     white-space: nowrap;
+    &:hover{
+      color: $main-color;
+
+    }
+    &:before{
+      display: block;
+      position: absolute;
+      left: -2px;
+      top: -2px;
+      content: '';
+      width: 24px;
+      height: 24px;
+      vertical-align: top;
+      background-image: url(../img/icons.png);
+      background-repeat: no-repeat;
+    }
+    &__pc:before{
+      background-position: 0 -675px;
+    }
+    &__mobile:before{
+      background-position: 0 -2999px;
+    }
+    &__home:before{
+      background-position: 0 -1571px;
+    }
+    &__sport:before{
+      background-position: 0 -3504px;
+    }
+    &__electron:before{
+      background-position: 0 -763px;
+    }
+    &__pc:hover:before{
+      background-position: 0 -719px;
+    }
+    &__mobile:hover:before{
+      background-position: 0 -3043px;
+    }
+    &__home:hover:before{
+      background-position: 0 -1615px;
+    }
+    &__sport:hover:before{
+      background-position: 0 -3548px;
+    }
+    &__electron:hover:before{
+      background-position: 0 -807px;
+    }
+
   }
 
 }
@@ -321,6 +373,7 @@ nav {
 .card {
   border: none;
   border-radius: 8px;
+  width: 220px;
 
   &-img {
     &-wrapper {
@@ -337,16 +390,8 @@ nav {
     }
 
     &-top {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      margin: auto;
-      max-width: 200px;
-      max-height: 200px;
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -367,7 +412,7 @@ nav {
   &-title {
     overflow: hidden;
     color: #333;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 1.38;
     padding-bottom: 6px;
     position: relative;
