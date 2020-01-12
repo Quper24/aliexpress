@@ -181,7 +181,7 @@ nav .search-wrapper_input {
   text-overflow: ellipsis;
   box-shadow: none;
 }
-nav .search-btn {
+nav .search-wrap-brn {
   height: 36px;
   display: flex;
   align-items: center;
@@ -191,7 +191,7 @@ nav .search-btn {
   overflow: hidden;
   background-color: #FF4747;
 }
-nav .search-btn button {
+nav .search-btn {
   cursor: pointer;
   border-color: transparent;
   height: 100%;
@@ -199,7 +199,7 @@ nav .search-btn button {
   background-color: #FF4747;
   border: none;
 }
-nav .search-btn button::before {
+nav .search-btn::before {
   content: "";
   display: inline-block;
   vertical-align: middle;
@@ -380,6 +380,9 @@ nav .search-btn button::before {
   position: absolute;
   z-index: 1;
 }
+.card:hover .card-title {
+  white-space: normal;
+}
 .card:hover .card-add-wishlist {
   opacity: 1;
   animation: show 0.5s ease-in-out;
@@ -478,7 +481,7 @@ nav .search-btn button::before {
   margin: auto;
   width: 1024px;
   min-height: 200px;
-  max-height: 640px;
+  max-height: 80vh;
   background-color: #fff;
   padding: 25px;
   overflow: auto;
@@ -532,6 +535,7 @@ nav .search-btn button::before {
 }
 .cart .goods {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   background-color: #fff;
   border-radius: 8px;
@@ -546,7 +550,8 @@ nav .search-btn button::before {
   flex-basis: 120px;
 }
 .cart .goods-description {
-  margin: 0 10px;
+  padding: 10px;
+  flex-grow: 1;
 }
 .cart .goods-title {
   font-size: 16px;
@@ -586,6 +591,88 @@ nav .search-btn button::before {
 }
 .cart .goods-count-total {
   width: 32px;
+}
+
+@keyframes spinner-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#spinner {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  background: none;
+}
+
+.spinner-loading > div > div {
+  transform-origin: 100px 100px;
+  animation: spinner-loading 3.0303030303s linear infinite;
+  opacity: 0.8;
+}
+
+.spinner-loading > div > div > div {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px 0 0 0;
+  transform-origin: 100px 100px;
+}
+
+.spinner-loading > div div:nth-child(1) {
+  animation-duration: 0.7575757576s;
+}
+
+.spinner-loading > div div:nth-child(1) > div {
+  background: #FF4747;
+  transform: rotate(0deg);
+}
+
+.spinner-loading > div div:nth-child(2) {
+  animation-duration: 1.0101010101s;
+}
+
+.spinner-loading > div div:nth-child(2) > div {
+  background: #FF43D5;
+  transform: rotate(0deg);
+}
+
+.spinner-loading > div div:nth-child(3) {
+  animation-duration: 1.5151515152s;
+}
+
+.spinner-loading > div div:nth-child(3) > div {
+  background: #ff9a00;
+  transform: rotate(0deg);
+}
+
+.spinner-loading > div div:nth-child(4) {
+  animation-duration: 3.0303030303s;
+}
+
+.spinner-loading > div div:nth-child(4) > div {
+  background: #0061FF;
+  transform: rotate(0deg);
+}
+
+.spinner-loading {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+  /* see note above */
+}
+
+.spinner-loading div {
+  box-sizing: content-box;
 }
 
 /*# sourceMappingURL=style.css.map */
