@@ -22,6 +22,17 @@ ul {
   padding: 0;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 button {
   outline: transparent;
 
@@ -319,11 +330,13 @@ nav {
     font-size: 14px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    &:hover{
+
+    &:hover {
       color: $main-color;
 
     }
-    &:before{
+
+    &:before {
       display: block;
       position: absolute;
       left: -2px;
@@ -335,34 +348,44 @@ nav {
       background-image: url(../img/icons.png);
       background-repeat: no-repeat;
     }
-    &__pc:before{
+
+    &__pc:before {
       background-position: 0 -675px;
     }
-    &__mobile:before{
+
+    &__mobile:before {
       background-position: 0 -2999px;
     }
-    &__home:before{
+
+    &__home:before {
       background-position: 0 -1571px;
     }
-    &__sport:before{
+
+    &__sport:before {
       background-position: 0 -3504px;
     }
-    &__electron:before{
+
+    &__electron:before {
       background-position: 0 -763px;
     }
-    &__pc:hover:before{
+
+    &__pc:hover:before {
       background-position: 0 -719px;
     }
-    &__mobile:hover:before{
+
+    &__mobile:hover:before {
       background-position: 0 -3043px;
     }
-    &__home:hover:before{
+
+    &__home:hover:before {
       background-position: 0 -1615px;
     }
-    &__sport:hover:before{
+
+    &__sport:hover:before {
       background-position: 0 -3548px;
     }
-    &__electron:hover:before{
+
+    &__electron:hover:before {
       background-position: 0 -807px;
     }
 
@@ -374,6 +397,11 @@ nav {
   border: none;
   border-radius: 8px;
   width: 220px;
+  top: 0;
+  left: 0;
+  &-wrapper {
+    position: relative;
+  }
 
   &-img {
     &-wrapper {
@@ -387,6 +415,8 @@ nav {
       width: 220px;
       height: 220px;
       cursor: pointer;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
     }
 
     &-top {
@@ -401,10 +431,16 @@ nav {
 
   &:hover {
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .08);
+    position: absolute;
+    z-index: 1;
 
     .card-add-wishlist {
       opacity: 1;
       animation: show .5s ease-in-out;
+    }
+
+    .card-add-cart {
+      display: block;
     }
   }
 
@@ -437,6 +473,21 @@ nav {
     font-size: 22px;
     font-weight: 700;
     letter-spacing: .3px;
+  }
+
+  &-add-cart {
+    display: none;
+    margin: 0 auto;
+    background: #ff9a00;
+    padding: 3px 9px;
+    min-width: 165px;
+    color: #fff;
+    border-color: transparent;
+    font-size: 16px;
+    border-radius: 8px;
+    &:hover{
+
+    }
   }
 
   &-add-wishlist {
@@ -520,6 +571,7 @@ nav {
     justify-content: center;
     flex-wrap: wrap;
     margin: 25px 0;
+    background-color: #f2f2f2;
     border: 1px solid #4d5f713f;
     border-radius: 3px;
     padding: 20px;
@@ -529,31 +581,32 @@ nav {
       color: #4d5f71
     }
 
-    .card {
-      width: 33%;
+  }
 
-      @media (max-width: 992px) {
-        width: 50%;
-      }
+  &-head {
+    display: flex;
+    justify-content: space-between;
 
-      @media (max-width: 768px) {
-        width: 70%;
-      }
-    }
   }
 
   &-close {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 5px;
+    right: 5px;
     cursor: pointer;
     height: 25px;
     width: 25px;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='005bff' d='M12 10.587l6.293-6.294a1 1 0 111.414 1.414l-6.293 6.295 6.293 6.294a1 1 0 11-1.414 1.414L12 13.416 5.707 19.71a1 1 0 01-1.414-1.414l6.293-6.294-6.293-6.295a1 1 0 011.414-1.414L12 10.587z'/%3E%3C/svg%3E");
+
+    &:hover {
+      -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2);
+    }
   }
 
   &-total {
-    font-size: 18px;
+    font-size: 28px;
 
     span {
       color: #077c24;
@@ -565,4 +618,75 @@ nav {
     margin-left: auto;
   }
 
+  .goods {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+
+    &-img {
+      max-width: 120px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+
+      &-wrapper {
+        flex-basis: 120px;
+      }
+    }
+
+    &-description {
+      margin: 0 10px;
+    }
+
+    &-title{
+      font-size: 16px;
+    }
+
+    &-price-count {
+      padding-right: 10px;
+    }
+
+    &-trigger {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-add-wishlist {
+      width: 32px;
+      height: 32px;
+      background-color: transparent;
+      background-image: url(../img/icons.png);
+      background-position: 4px -2590px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      border: none;
+      &:hover {
+
+      }
+    }
+
+    &-delete {
+      width: 32px;
+      height: 32px;
+      background-color: transparent;
+      background-image: url(../img/icons.png);
+      background-position: 8px -1865px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      border: none;
+    }
+
+    &-count {
+      display: flex;
+      justify-content: center;
+    }
+
+    &-count-total{
+      width: 32px;
+    }
+
+  }
 }
