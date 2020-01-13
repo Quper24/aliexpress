@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-	const searchInput = document.querySelector('.search-wrapper_input');
-	const searchBtn = document.getElementById('search-btn');
+	const search = document.querySelector('.search');
 	const cartBtn = document.getElementById('cart');
 	const whishlistBtn = document.getElementById('whishlist');
 	const cart = document.querySelector('.cart');
-	const categoryList = document.querySelector('.category-list')
+	const categoryList = document.querySelector('.category-list');
 
 	const goodsWrapper = document.querySelector('.goods-wrapper');
 
@@ -13,8 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		goodsWrapper.innerHTML = `<div id="spinner"><div class="spinner-loading"><div><div><div></div>
 		</div><div><div></div></div><div><div></div></div><div><div></div></div></div></div></div>`;
 	};
-
-
 
 
 	const createCardGoods = (id, title, price, img) => {
@@ -39,9 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const renderCard = items => {
 		goodsWrapper.textContent = '';
-		items.forEach(({ id, title, price, imgMin }) =>
-			goodsWrapper.appendChild(createCardGoods(id, title, price, imgMin)));
-	}
+		if (items.length) {
+			items.forEach(({ id, title, price, imgMin }) =>
+				goodsWrapper.appendChild(createCardGoods(id, title, price, imgMin)));
+		} else {
+			goodsWrapper.innerHTML = '❌ Извините, мы не нашли товаров по Вашему запросу. Пожалуйста, попробуйте поискать снова.';
+		}
+	};
 
 	const randomSort = items => items.sort(() => Math.random() - 0.5);
 
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 
 	const openCart = () => {
+
 		cart.style.display = 'flex';
 	};
 
@@ -68,9 +70,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	};
 
+	const choiceCategory = event => {
+
+		const target = event.target;
+
+		if (target.classList.contains('category-item')) {
+			const category = target.dataset.category;
+			getGoods(renderCard, goods => goods.filter(item => item.category.includes(category)));
+		}
+	};
+
+	const searchGoods = event => {
+
+		event.preventDefault();
+		const input = event.target.elements.searchGoods;
+
+		if (input.value.trim() !== '') {
+			const searchString = new RegExp(input.value, 'i');
+			getGoods(renderCard, goods => goods.filter(item => searchString.test(item.title)));
+		} else {
+			search.classList.add('error');
+			setTimeout(() => {
+				search.classList.remove('error');
+			}, 2000);
+		}
+		
+		input.value = '';
+
+	};
+
+
 	cartBtn.addEventListener('click', openCart);
 	cart.addEventListener('click', closeCart);
-
+	categoryList.addEventListener('click', choiceCategory);
+	search.addEventListener('submit', searchGoods);
 
 	getGoods(renderCard, randomSort);
 });
+
+
+

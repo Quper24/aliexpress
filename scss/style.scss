@@ -1,5 +1,8 @@
 $main-color: #FF4747;
 $second-color: #ff9a00;
+$blue: #0059FF;
+$pink: #FF63F5;
+
 
 @keyframes show {
   0% {
@@ -8,6 +11,25 @@ $second-color: #ff9a00;
 
   to {
     opacity: 1
+  }
+}
+
+@keyframes error {
+  0% {
+    border: 3px solid $main-color;
+  }
+
+  25% {
+    border: 3px solid $blue;
+  }
+  50% {
+    border: 3px solid $second-color;
+  }
+  75% {
+    border: 3px solid $pink;
+  }
+  100% {
+    border: 3px solid $main-color;
   }
 }
 
@@ -175,10 +197,11 @@ nav {
     display: flex;
     position: relative;
     flex-grow: 1;
+    border: 3px solid $main-color;
+
 
     &-wrapper {
       justify-content: flex-start;
-      border: 2px solid $main-color;
       border-right-width: 0;
       border-radius: 3px 0 0 3px;
       align-items: stretch;
@@ -775,7 +798,6 @@ nav {
 }
 
 
-
 .spinner-loading {
   width: 100%;
   height: 100%;
@@ -787,4 +809,10 @@ nav {
 
 .spinner-loading div {
   box-sizing: content-box;
+}
+
+.search.error{
+  -webkit-animation: 2s linear error;
+  -o-animation: 2s linear error;
+  animation: 2s linear error;
 }
