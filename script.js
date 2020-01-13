@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				search.classList.remove('error');
 			}, 2000);
 		}
-		
+
 		input.value = '';
 
 	};
