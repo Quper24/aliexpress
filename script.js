@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		</div><div><div></div></div><div><div></div></div><div><div></div></div></div></div></div>`;
 	};
 
-
 	const createCardGoods = (id, title, price, img) => {
 		const card = document.createElement('div');
 		card.className = 'card-wrapper col-12 col-md-6 col-lg-4 col-xl-3 pb-3';
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			items.forEach(({ id, title, price, imgMin }) =>
 				goodsWrapper.appendChild(createCardGoods(id, title, price, imgMin)));
 		} else {
-			goodsWrapper.innerHTML = '❌ Извините, мы не нашли товаров по Вашему запросу. Пожалуйста, попробуйте поискать снова.';
+			goodsWrapper.textContent = '❌ Извините, мы не нашли товаров по Вашему запросу. Пожалуйста, попробуйте поискать снова.';
 		}
 	};
 
@@ -99,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	};
 
-
 	cartBtn.addEventListener('click', openCart);
 	cart.addEventListener('click', closeCart);
 	categoryList.addEventListener('click', choiceCategory);
@@ -109,4 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+// Доп ДЗ
+// 1) Заменить спиннер загрузки товаров можно взять с сайта https://loading.io/
+// 2) Заменить сообщение "мы не нашли товаров по Вашему запросу", на картинку или анимацию
 
