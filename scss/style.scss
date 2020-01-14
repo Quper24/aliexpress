@@ -547,6 +547,7 @@ nav {
     }
 
     &.active {
+      opacity: 1;
       background-position: 4px -2632px;
 
       &:hover {

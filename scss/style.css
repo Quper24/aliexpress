@@ -465,6 +465,7 @@ nav .search-btn::before {
   background-position: 4px -2588px;
 }
 .card-add-wishlist.active {
+  opacity: 1;
   background-position: 4px -2632px;
 }
 .card-add-wishlist.active:hover {
