@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		return card;
 	};
 
-
 	const renderCard = items => {
 		goodsWrapper.textContent = '';
 		if (items.length) {
@@ -87,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const randomSort = items => items.sort(() => Math.random() - 0.5);
 
-
 	const showGoodsCart = goods => goods.filter(good => goodsCart.hasOwnProperty(good.id));
 
 	const closeCart = event => {
@@ -102,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		cart.style.display = 'flex';
 		getGoods(renderCart, showGoodsCart);
 	};
-
 
 	const getGoods = (handler, filter) => {
 		//loading();
@@ -231,8 +228,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	cookieQuery();
 });
 
+/*
+ДЗ
+Основная
+Все повторить за мной
 
-// Доп ДЗ 2
-// 1) Заменить спиннер загрузки товаров можно взять с сайта https://loading.io/
-// 2) Заменить сообщение "мы не нашли товаров по Вашему запросу", на картинку или анимацию
+Дополнительная, но учитывая все что мы узнали на воркшопе вы сможете сделать, это вывести количество товаров вместо цифры 1
 
+И Дополнительная сложная разобраться со спиннером, чтобы в корзине работал спиннер пока товары загружаются и он никак не влиял на спиннер на странице
+вариантов решения много
+
+Что сделаем завтра
+выведем сумму товаров, еще не знаю каким способом лучше
+Реализуем удаление товаров из корзины
+*/
