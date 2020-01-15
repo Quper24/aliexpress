@@ -276,11 +276,11 @@ nav .search-btn::before {
   line-height: 18px;
 }
 
-#whishlist {
+#wishlist {
   background-image: url("../img/icons.png");
   background-position: 1px -3592px;
 }
-#whishlist:hover {
+#wishlist:hover {
   background-position: 1px -3642px;
 }
 
@@ -587,11 +587,14 @@ nav .search-btn::before {
   height: 32px;
   background-color: transparent;
   background-image: url(../img/icons.png);
-  background-position: 4px -2590px;
+  background-position: 4px -2589px;
   border-radius: 50%;
   text-align: center;
   line-height: 32px;
   border: none;
+}
+.cart .goods-add-wishlist.active {
+  background-position: 4px -2633px;
 }
 .cart .goods-delete {
   width: 32px;
